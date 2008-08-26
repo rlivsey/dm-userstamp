@@ -1,4 +1,4 @@
-= dm-userstamp
+= dm-userstamps
 
 DataMapper plugin which adds "magic" to created_by_id, updated_by_id fields
 
@@ -21,6 +21,12 @@ class Monkey
   property :updated_by_id, Integer      
   ...
 end
+
+== Install
+
+sudo gem install dm-userstamps
+
+== Thanks
 
 Code based on:
  * AR userstamp plugin - http://github.com/ctran/userstamp/tree/master
