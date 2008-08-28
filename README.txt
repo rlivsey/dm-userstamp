@@ -1,4 +1,4 @@
-= dm-userstamps
+= dm-userstamp
 
 DataMapper plugin which adds "magic" to created_by_id, updated_by_id fields
 
@@ -24,7 +24,7 @@ end
 
 == Install
 
-sudo gem install dm-userstamps
+sudo gem install dm-userstamp
 
 == Thanks
 
