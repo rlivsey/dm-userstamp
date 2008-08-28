@@ -22,6 +22,11 @@ class Monkey
   ...
 end
 
+== Docs
+
+See rubyforge project:
+ * http://dm-userstamp.rubyforge.org/
+
 == Install
 
 sudo gem install dm-userstamp
