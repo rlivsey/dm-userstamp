@@ -2,8 +2,8 @@
 
 require 'rubygems'
 require 'hoe'
-require './lib/dm-userstamps.rb'
-require './lib/dm-userstamps/version.rb'
+require './lib/dm-userstamp.rb'
+require './lib/dm-userstamp/version.rb'
 
 Hoe.new('dm-userstamp', DataMapper::Userstamps::VERSION) do |p|
   p.name            = 'dm-userstamp'
