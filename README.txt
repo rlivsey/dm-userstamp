@@ -9,6 +9,7 @@ Eg:
 
 class User
   include DataMapper::Resource
+  include DataMapper::Userstamp::Stamper
   
   cattr_accessor :current_user
   ...
