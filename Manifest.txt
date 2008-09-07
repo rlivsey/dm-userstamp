@@ -4,8 +4,8 @@ Manifest.txt
 README.txt
 Rakefile
 TODO
-lib/dm-userstamps.rb
-lib/dm-userstamps/version.rb
-spec/integration/userstamps_spec.rb
+lib/dm-userstamp.rb
+lib/dm-userstamp/version.rb
+spec/integration/userstamp_spec.rb
 spec/spec.opts
 spec/spec_helper.rb
