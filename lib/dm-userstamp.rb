@@ -1,6 +1,6 @@
 require 'rubygems'
 
-gem 'dm-core', '>=0.9.4'
+gem 'dm-core', '>=0.9.10'
 require 'dm-core'
 
 module DataMapper
@@ -39,7 +39,7 @@ module DataMapper
     private
 
     def set_userstamp_properties
-      self.class.properties.slice(*USERSTAMP_PROPERTIES.keys).compact.each do |property|
+      self.class.properties.values_at(*USERSTAMP_PROPERTIES.keys).compact.each do |property|
         USERSTAMP_PROPERTIES[property.name][self]
       end
     end
