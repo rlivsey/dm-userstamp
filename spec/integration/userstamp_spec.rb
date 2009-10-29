@@ -35,12 +35,12 @@ describe 'DataMapper::Userstamp' do
   end
   
   after do
-   repository(:default).adapter.execute('DELETE from users');
-   repository(:default).adapter.execute('DELETE from monkeys');   
+   DataMapper.repository(:default).adapter.execute('DELETE from users');
+   DataMapper.repository(:default).adapter.execute('DELETE from monkeys');   
   end  
   
   it "should not set created_by_id if there is no current user" do
-    repository(:default) do
+    DataMapper.repository(:default) do
       User.current_user = nil
       monkey = Monkey.new(:name => 'Eric')
       monkey.save
@@ -49,7 +49,7 @@ describe 'DataMapper::Userstamp' do
   end
     
     it "should not set updated_by_id if there is no current user" do
-      repository(:default) do
+      DataMapper.repository(:default) do
         User.current_user = nil
         monkey = Monkey.new(:name => 'Eric')
         monkey.save
@@ -58,7 +58,7 @@ describe 'DataMapper::Userstamp' do
     end
     
     it "should not set created_by_id if already set" do
-      repository(:default) do
+      DataMapper.repository(:default) do
         monkey = Monkey.new(:name => 'Eric')
         monkey.created_by_id = 5
         monkey.save
@@ -68,7 +68,7 @@ describe 'DataMapper::Userstamp' do
     end
     
     it "should set created_by_id on creation" do
-      repository(:default) do
+      DataMapper.repository(:default) do
         monkey = Monkey.new(:name => 'Clyde')
         monkey.created_by_id.should be_nil
         monkey.save
@@ -78,7 +78,7 @@ describe 'DataMapper::Userstamp' do
     end
     
     it "should not alter created_by_id on model updates" do
-      repository(:default) do
+      DataMapper.repository(:default) do
         monkey = Monkey.new(:name => 'Chump')
         monkey.created_by_id.should be_nil
         monkey.save
@@ -90,7 +90,7 @@ describe 'DataMapper::Userstamp' do
     end
     
     it "should set updated_by_id on creation and on update" do
-      repository(:default) do
+      DataMapper.repository(:default) do
         monkey = Monkey.new(:name => 'Johnny')
         monkey.updated_by_id.should be_nil
         monkey.save
