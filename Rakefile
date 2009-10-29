@@ -1,18 +1,48 @@
-# -*- ruby -*-
-
 require 'rubygems'
-require 'hoe'
-require './lib/dm-userstamp.rb'
-require './lib/dm-userstamp/version.rb'
+require 'rake'
 
-Hoe.new('dm-userstamp', DataMapper::Userstamps::VERSION) do |p|
-  p.name            = 'dm-userstamp'
-  p.remote_rdoc_dir = '' # Release to root
-  p.rubyforge_name  = 'dm-userstamp'
-  p.author          = "Richard Livsey"
-  p.description     = "DataMapper plugin to add automatic updating of created_by_id and updated_by_id attributes"
-  p.summary         = "DataMapper plugin to add automatic updating of created_by_id and updated_by_id attributes"
-  p.email           = 'richard@livsey.org' 
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gem|
+    gem.name = "dm-userstamp"
+    gem.summary = %Q{DataMapper plugin to add automatic updating of created_by_id and updated_by_id attributes}
+    gem.email = "richard@livsey.org"
+    gem.homepage = "http://github.com/rlivsey/dm-userstamp"
+    gem.authors = ["Richard Livsey"]
+    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+  end
+
+rescue LoadError
+  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-# vim: syntax=Ruby
+require 'spec/rake/spectask'
+Spec::Rake::SpecTask.new(:spec) do |spec|
+  spec.libs << 'lib' << 'spec'
+  spec.spec_files = FileList['spec/**/*_spec.rb']
+end
+
+Spec::Rake::SpecTask.new(:rcov) do |spec|
+  spec.libs << 'lib' << 'spec'
+  spec.pattern = 'spec/**/*_spec.rb'
+  spec.rcov = true
+end
+
+
+task :default => :spec
+
+require 'rake/rdoctask'
+Rake::RDocTask.new do |rdoc|
+  if File.exist?('VERSION.yml')
+    config = YAML.load(File.read('VERSION.yml'))
+    version = "#{config[:major]}.#{config[:minor]}.#{config[:patch]}"
+  else
+    version = ""
+  end
+
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title = "dm-userstamp #{version}"
+  rdoc.rdoc_files.include('README*')
+  rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
