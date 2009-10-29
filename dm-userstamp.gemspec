@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dm-userstamp}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Richard Livsey"]
@@ -13,16 +13,17 @@ Gem::Specification.new do |s|
      "README.txt"
   ]
   s.files = [
-    ".DS_Store",
+    ".gitignore",
      "History.txt",
      "LICENSE",
      "README.txt",
      "Rakefile",
      "TODO",
+     "VERSION",
+     "dm-userstamp.gemspec",
      "lib/.DS_Store",
      "lib/dm-userstamp.rb",
      "lib/dm-userstamp/version.rb",
-     "spec/.DS_Store",
      "spec/integration/userstamp_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
